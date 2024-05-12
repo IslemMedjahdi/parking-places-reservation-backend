@@ -47,6 +47,9 @@ app.post("/auth/register", (req, res) => {
 app.post("/reservations", (req, res) => {
   res.send({
     id: faker.string.uuid(),
+    startDate: faker.date.recent().toISOString(),
+    endDate: faker.date.recent().toISOString(),
+    parking: generateParking(),
   });
 });
 
