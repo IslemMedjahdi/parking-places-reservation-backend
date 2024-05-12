@@ -49,7 +49,13 @@ app.post("/reservations", (req, res) => {
     id: faker.string.uuid(),
     startDate: faker.date.recent().toISOString(),
     endDate: faker.date.recent().toISOString(),
-    parking: generateParking(),
+    parkingId: faker.string.uuid(),
+    parkingName: faker.company.name(),
+    parkingPhotoUrl:
+      FAKE_PARKING_IMAGES[
+        faker.number.int({ min: 0, max: FAKE_PARKING_IMAGES.length - 1 })
+      ],
+    parkingAddress: faker.location.streetAddress(),
   });
 });
 
